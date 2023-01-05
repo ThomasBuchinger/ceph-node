@@ -21,6 +21,7 @@ function bootstrap_ceph() {
   cephadm bootstrap \
     --mon-ip "${MY_IP}" \
     --single-host-defaults \
+    --allow-fqdn-hostname \
     --config config/initial-config.ini \
     --initial-dashboard-password changeme \
     --dashboard-password-noupdate | tee install.log
