@@ -4,8 +4,8 @@
 MY_IP=$(ip route get 8.8.8.8 | grep -oe 'src.*'  | cut -d ' ' -f2)
 
 
-function install_cockpit() {
-  dnf install -y cockpit cockpit-storaged
+function install_base_os() {
+  dnf install -y cockpit cockpit-storaged vim
   systemctl enable --now cockpit.socket
 
 }
@@ -29,6 +29,6 @@ function configure_ceph_serivces() {
 }
 
 
-install_cockpit
+install_base_os
 install_ceph
 # configure_ceph_services
