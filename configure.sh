@@ -11,7 +11,7 @@ if ! grep "NODE_IP=" $CONFIG_FILE; then
 fi
 
 if ! grep "DASHBOARD_PASSWORD=" $SECRETS_FILE; then
-  read -p "Enter Dashboard Password" pass
+  read -p "Enter Dashboard Password: " pass
   echo "DASHBOARD_PASSWORD=$pass" >> $SECRETS_FILE
 fi
 

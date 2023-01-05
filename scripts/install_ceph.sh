@@ -19,11 +19,11 @@ function install_packages() {
 
 function bootstrap_ceph() {
   cephadm bootstrap \
-    --mon-ip "${MY_IP}" \
+    --mon-ip "${NODE_IP}" \
     --single-host-defaults \
     --allow-fqdn-hostname \
     --config config/initial-config.ini \
-    --initial-dashboard-password changeme \
+    --initial-dashboard-password "${DASHBOARD_PASSWORD}" \
     --dashboard-password-noupdate | tee install.log
   ceph orch apply osd --all-available-devices
 
